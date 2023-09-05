@@ -19,6 +19,7 @@ pip install proxygetter
 To get a list of all available proxies:
 
 ```python
+from proxygetter import get_proxies
 proxies = get_proxies()
 print(proxies)
 ```
