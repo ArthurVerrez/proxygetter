@@ -6,7 +6,7 @@ setup(
     url="https://github.com/ArthurVerrez/proxygetter",
     author="Arthur Verrez",
     author_email="macdouglass@example.com",
-    description="A utility to get and filter proxies",
+    description="A utility to get and filter free proxies",
     packages=find_packages(),
     install_requires=["requests", "beautifulsoup4"],
 )
