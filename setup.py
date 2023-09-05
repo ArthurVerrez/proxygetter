@@ -1,18 +1,27 @@
 from setuptools import setup, find_packages
 
+
+def read_requirements():
+    with open("requirements.txt", "r") as req_file:
+        return [line.strip() for line in req_file.readlines()]
+
+
 setup(
     name="proxygetter",
     version="0.1.0",
     url="https://github.com/ArthurVerrez/proxygetter",
     author="Arthur Verrez",
-    author_email="macdouglass@example.com",
+    author_email="macdouglass@outlook.com",
     description="A utility to get and filter free proxies",
     packages=find_packages(),
-    install_requires=["requests", "beautifulsoup4"],
+    install_requires=read_requirements(),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
     ],
 )
