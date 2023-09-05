@@ -1,3 +1,5 @@
+.pypi_token
+publish_to_pypi.ps1
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
