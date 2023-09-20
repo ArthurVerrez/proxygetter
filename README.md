@@ -85,3 +85,9 @@ You can run the tests using the `unittest` framework with the command:
 ```bash
 python -m unittest tests/test_proxygetter.py
 ```
+
+## Coming changes
+
+- Ability to only get 1 proxy instead of a list
+- Ability to test the proxies with a given url
+- More databases than just sslproxies.org
