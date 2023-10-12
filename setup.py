@@ -12,7 +12,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="proxygetter",
-    version="0.1.3",
+    version="0.2.0",
     url="https://github.com/ArthurVerrez/proxygetter",
     author="Arthur Verrez",
     author_email="macdouglass@outlook.com",
