@@ -2,92 +2,75 @@
 
 ## Description
 
-`proxygetter` is a Python utility for scraping and filtering proxies from [sslproxies.org](https://www.sslproxies.org/). It is designed to be lightweight, fast, and customizable.
+`proxygetter` is a Python library that provides a fast and customizable way to scrape, filter, and manage proxies. It's powered by asyncio and aiohttp to validate proxies asynchronously. Originally designed to scrape from [sslproxies.org](https://www.sslproxies.org/), it now supports customizable sources and multiple filters.
 
 ## Installation
 
-You can install `proxygetter` via pip:
+Install the package via pip:
 
 ```bash
 pip install proxygetter
 ```
 
-## Usage
+## Features
 
-### Basic Usage
-
-To get a list of all available proxies:
+### Proxy Management
+Manage your proxies with ease using the `ProxyManager` class.
 
 ```python
-from proxygetter import get_proxies
-proxies = get_proxies()
-print(proxies)
+from proxygetter import ProxyManager
+manager = ProxyManager()
 ```
 
-### Features
-
-#### Filter by Country Code
-
-To get proxies from a specific country:
+#### Asynchronous Filtering
+Filter proxies based on their validity asynchronously.
 
 ```python
-proxies = get_proxies(country_code='US')
+valid_proxies = manager.filter_with_validity(url="http://example.com")
 ```
 
-#### Filter by Anonymity
-
-To get anonymous or elite proxies (accepted values are `'anonymous'` and `'elite proxy'`):
+### Proxy Information
+Access details about each proxy through the `Proxy` class.
 
 ```python
-proxies = get_proxies(anonymity='anonymous')
+proxy = valid_proxies[0]
+print(proxy.get_requests_format())
+print(proxy.get_selenium_format())
 ```
 
-#### Filter by HTTPS support
+### Advanced Filters
 
-To get proxies that support HTTPS:
+Get proxies using advanced filters like country code, anonymity, https support, Google compatibility, and last checked time.
 
 ```python
-proxies = get_proxies(https=True)
+filtered_proxies = manager.get_proxies(country_code='US', anonymity='elite proxy', https=True, google=True, last_checked_max=600)
 ```
 
-#### Filter by Google support
+### Fetch a Random Proxy
 
-To get proxies that were checked to work with Google:
+You can fetch a random proxy based on specified filters.
 
 ```python
-proxies = get_proxies(google=True)
+random_proxy = manager.get_random_proxy(country_code='US', https=True)
 ```
 
-#### Filter by Last Checked Time
+### Environment Configuration
 
-To get proxies that were last checked within a certain number of seconds:
+Configure default user agent and timeout using environment variables.
 
-```python
-proxies = get_proxies(last_checked_max=600)  # Proxies checked within the last 10 minutes
-```
-
-### Advanced Usage
-
-You can combine multiple filters:
-
-```python
-proxies = get_proxies(country_code='US', anonymity='elite proxy', https=True, google=True, last_checked_max=600)
+```bash
+export PROXY_URL_CHECKER_USER_AGENT=your_user_agent
+export PROXY_URL_CHECKER_TIMEOUT=your_timeout_value
 ```
 
 ## License
 
 This project is under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Tests
+## Upcoming Features
 
-You can run the tests using the `unittest` framework with the command:
+- Proxy blacklisting
+- Additional proxy databases
+- Enhanced documentation and examples
 
-```bash
-python -m unittest tests/test_proxygetter.py
-```
-
-## Coming changes
-
-- Ability to only get 1 proxy instead of a list
-- Ability to test the proxies with a given url
-- More databases than just sslproxies.org
+Feel free to contribute or suggest improvements.
