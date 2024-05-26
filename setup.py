@@ -12,7 +12,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="proxygetter",
-    version="0.2.1",
+    version="0.2.2",
     url="https://github.com/ArthurVerrez/proxygetter",
     author="Arthur Verrez",
     author_email="macdouglass@outlook.com",
@@ -30,5 +30,6 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
     ],
 )
