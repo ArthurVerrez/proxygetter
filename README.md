@@ -23,22 +23,12 @@ from proxygetter import ProxyManager
 manager = ProxyManager()
 ```
 
-### Proxy Information
-
-Access details about each proxy through the `Proxy` class.
-
-```python
-proxy = valid_proxies[0]
-print(proxy.get_requests_format())
-print(proxy.get_selenium_format())
-```
-
 ### Advanced Filters
 
 Get proxies using advanced filters like country code, anonymity, https support, Google compatibility, and last checked time.
 
 ```python
-filtered_proxies = manager.get_proxies(country_code='US', anonymity='elite proxy', https=True, google=True, last_checked_max=600)
+proxies = manager.get_proxies(country_code='US', anonymity='elite proxy', https=True, google=True, last_checked_max=600)
 ```
 
 ### Fetch a Random Proxy
@@ -46,7 +36,17 @@ filtered_proxies = manager.get_proxies(country_code='US', anonymity='elite proxy
 You can fetch a random proxy based on specified filters.
 
 ```python
-random_proxy = manager.get_random_proxy(country_code='US', https=True)
+proxy = manager.get_random_proxy(country_code='US', https=True)
+```
+
+### Proxy Information
+
+Access details about each proxy through the `Proxy` class.
+
+```python
+proxy = proxies[0]
+print(proxy.get_requests_format())
+print(proxy.get_selenium_format())
 ```
 
 ### Environment Configuration
