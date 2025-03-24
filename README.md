@@ -15,6 +15,7 @@ pip install proxygetter
 ## Features
 
 ### Proxy Management
+
 Manage your proxies with ease using the `ProxyManager` class.
 
 ```python
@@ -22,14 +23,8 @@ from proxygetter import ProxyManager
 manager = ProxyManager()
 ```
 
-#### Asynchronous Filtering
-Filter proxies based on their validity asynchronously.
-
-```python
-valid_proxies = manager.filter_with_validity(url="http://example.com")
-```
-
 ### Proxy Information
+
 Access details about each proxy through the `Proxy` class.
 
 ```python
